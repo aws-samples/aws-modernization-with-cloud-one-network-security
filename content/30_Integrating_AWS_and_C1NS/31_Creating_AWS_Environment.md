@@ -9,9 +9,9 @@ pre: "<b>4.1 </b>"
 
 ## 1. Creating the base AWS environment using AWS CloudFormation Template
 
-You can use the CloudFormation template below to create the infrastructure in same AZ with the 2 subnets, NAT Gateway, Internet Gateway, and the EC2 instances.
+You can use the CloudFormation template launch button below to create the infrastructure in same AZ with the 2 subnets, NAT Gateway, Internet Gateway, and the EC2 instances.
 
-**Download** -> [CloudFormation Template](/cft/CFT_Network_Security_Workshop.yml)
+[![Launch Stack](https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=Network-Security-Workshop&templateURL=https://aws-workshop-c1as-cft-templates.s3.amazonaws.com/CFT_Network_Security_Workshop.yml)
 
 ---
 
@@ -28,30 +28,15 @@ In this example, you don't need to create the Inspection and Management subnets 
 
 ---
 
-### 2. Go to the [AWS Console](https://aws.amazon.com/) and search for **CloudFormation**:
+### 2. Uploading the CloudFormation Template
 
-![C1NS1](/images/create_env.png) 
-
----
-
-### 3. Select **Create stack**
-
-![C1NS1](/images/create_env_2.png) 
-
----
-
-### 4. Uploading the CloudFormation Template
-
-- Select the option to **Upload a template file**
-- Click on **Choose the File** 
-- Select the CloudFormation template that you downloaded in Step 1 above.
 - Click on **Next**
 
 ![C1NS1](/images/create_env_3.png) 
 
 ---
 
-### 5. Specifying additional stack parameters
+### 3. Specifying additional stack parameters
 
 {{% notice info %}}
 <p style='text-align: left;'>
@@ -88,13 +73,13 @@ A Key Pair is required before continuing this CloudFormation deployment. If you 
 
 ---
 
-### 5.1. Stack details example:
+### 3.1. Stack details example:
 
 ![C1NS1](/images/create_env_4.png) 
 
 ---
 
-### 6. Configure stack options
+### 4. Configure stack options
 
 Leave as fields as default and click **Next**, or optionally define tags to the environment if desired.
 
@@ -102,7 +87,7 @@ Leave as fields as default and click **Next**, or optionally define tags to the 
 
 ---
 
-### 7. Review the template parameters 
+### 5. Review the template parameters 
 - Mark the checkbox the **"I acknowledge... "**
 - Click on **Create Stack**
 
@@ -114,7 +99,7 @@ Leave as fields as default and click **Next**, or optionally define tags to the 
 
 ---
 
-### 8. Follow up the events during creation of the stack.
+### 6. Follow up the events during creation of the stack.
 - Select the **Events** tab
 - Click **Refresh**
 
@@ -122,7 +107,7 @@ Leave as fields as default and click **Next**, or optionally define tags to the 
 
 ---
 
-### 9. Ensure the stack status has reached **Create_Complete**. 
+### 7. Ensure the stack status has reached **Create_Complete**. 
 - Select the **Stack info** tab
 
 ![C1NS1](/images/create_env_11.png) 
