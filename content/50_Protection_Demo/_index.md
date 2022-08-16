@@ -1,5 +1,5 @@
 ---
-title: "Configure and Protect"
+title: "Configure Security Policy"
 chapter: true
 weight: 50
 pre: "<b>6. </b>"
@@ -87,26 +87,6 @@ pre: "<b>6. </b>"
 
 ---
 
-#### 3. Deploying the Policy.
-- In the Network Security Console select **Appliances**
-- Click on the **Group/Appliance Name**
-
-![ns_policy1](/images/ns_aplliances.png)
-![ns_policy1](/images/ns_distro_policy.png)
-
----
-
-#### 4. On the Appliance page, click in **Distribute Policy** and wait until it distribution has finished.
-
-![ns_policy1](/images/distro_policy_start.png)
-
----
-
-##### 4.1 Once it finish it will look like the image below.
 
 
-![ns_policy1](/images/distro_policy_finish.png)
-
---------
-
-### Congrats you have assigned filters and distributed the policy to your Network Security Appliance :star-struck: :robot: :white_check_mark: :cloud:
+### Congrats you have assigned filters for your Network Security Appliance policy. Next you will distribute the policy and validate protection. :star-struck: :robot: :white_check_mark: :cloud:

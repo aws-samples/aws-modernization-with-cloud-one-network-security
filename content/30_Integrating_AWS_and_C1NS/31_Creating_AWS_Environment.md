@@ -15,19 +15,6 @@ You can use the CloudFormation template launch button below to create the infras
 
 ---
 
-#### Here is the architectural diagram of the cloudformation template.
-
-![C1NS1](/images/C1NS_AWS_enviroment.png) 
-
-{{% notice note %}}
-<p style='text-align: left;'>
-In this example, you don't need to create the Inspection and Management subnets because the CloudFormation template suggested by the Cloud One - Network Security documentation will create them for you.
-</p>
-{{% /notice %}}
-
-
----
-
 ### 2. Uploading the CloudFormation Template
 
 - Click on **Next**

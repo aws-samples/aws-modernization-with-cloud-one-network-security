@@ -1,38 +1,43 @@
 ---
-title: "Cloud One - Network Security Deploying AMI"
+title: "Deploy the Network Security Endpoint"
 chapter: false
 weight: 33
 pre: "<b>4.3 </b>"
 ---
+ 
 
-### Deploying Cloud One - Network Security Appliance 
+Deploying Network Security as a managed service requires only a few steps and has no overhead management during or after deployment. With managed service, the traffic in your environment is routed through Network Security endpoints to be inspected. The only items you manage are the Network Security endpoints in your cloud environment; the virtual appliances, as well as any additional infrastructure requirements, are managed by Network Security.
 
-Amazon Web Services (AWS) allows you to scale your network deployment as needed without investing in hardware appliances. Deploy Network Security in AWS by placing Network Security instances inline within your AWS Virtual Private Cloud (VPC).
+![C1NS1](/images/C1NS_Endpoint.png)
 
 ---
 
 #### 1. In the Cloud One Network Security console.
-- **Select** the cloud account created previously
-- Click on **Next: Select Asset**
+- Click on the **Network** tab
+- Select **Managed Service**
 
 ![C1NS1](/images/deploy_protec_1.png) 
 
 ---
 
-#### 2. Select the VPC that you will deploy the Network Security Appliance.
+#### 2. Select the VPC that you will deploy the Network Security managed service.
 
-- Select the **VPC** with the Internet Gateway Name: **IGW - C1NS-labenvironment**
-- Click on **Next: Select Availability Zones**
+- The ID of the **VPC** can be found in the **Outputs tab** of the base environment CloudFormation template. 
+- Once you have located the VPC. Click on **Deploy Protection**
 ![C1NS1](/images/deploy_protec_2.png) 
 
 ---
 
-#### 3. Here you can select the Availability Zone(s) that the Cloud One - Network Security Appliance will include in the deployment script. 
-- Click on **Next: Finalize Parameters** 
+#### 3. Choose the Availability Zones in your VPC and provide a specific subnet for the inspection endpoint. 
+- Check the box for **us-east-1a**
+- Optional - Define a name for the subnet
+- Select **CIDR**
+- Paste ```10.10.0.16/28```
+- Click **Create Endpoint** 
 
 {{% notice note %}}
 <p style='text-align: left;'>
-Leave as default with the one AZ selected for this workshop.
+It takes up to 10 minutes to deploy the Endpoint.
 </p>
 {{% /notice %}}
 
@@ -40,150 +45,117 @@ Leave as default with the one AZ selected for this workshop.
 
 ---
 
-#### 4. Verify Network Asset
-This steo verifies that the selected network asset can support dep ovment for the Network Securitv virtual appliance.
-- Click on **Next: Finalize Parameters** 
-
+#### 4. Once the creation has started click on View Next Steps.
+- Click on **Complete Wizard**.
 ![C1NS1](/images/deploy_protec_4.png) 
-
----
-
-#### 5. Finalize parameters
-- Select the SSH Key Pair that we created before for this workshop
-- Click on **Next: Use Deployment Script**
-
 ![C1NS1](/images/deploy_protec_5.png)
+---
+
+#### 5. Confirm endpoint creation.
+- In Cloud One - **Network Security > Network > Managed Service**.
+- Expand the VPC to see the status of the enpoint.
+![C1NS1](/images/deploy_protec_6.png)
+![C1NS1](/images/deploy_protec_7.png)  
 
 ---
 
-#### 6. Click on **Download** to get the CloudFormation template
+#### 6. Route network traffic through endpoints.
+After your Network Security endpoints have successfully deployed, modify the traffic routes in your cloud environment so that traffic is directed to the Network Security endpoints for inspection.
 
-{{% notice note %}}
-<p style='text-align: left;'>
-The CloudFormation template will create 2 new subnets for you, the Inspection and the Management subnets.
-</p>
-{{% /notice %}}
+- Navigate to the **AWS Console > VPC**.
+- Under Virtual Private Cloud, click **Route Tables**.
+- Click **Create route table**.
 
-![C1NS1](/images/deploy_protec_6.png) 
-
----
-
-#### 7. Edit the CloudFormation template (deploymentScript.yaml) downloaded previously from Cloud One console. 
-
-You can use any text editor or IDE. In our example we are using [Visual Studio Code](https://code.visualstudio.com/download).
+![C1NS1](/images/deploy_protec_8.png) 
 
 ---
 
-##### 7.1 Open the CloudFormation template that you downloaded called - **deploymentScript.yaml**
+#### 7. Creation of Edge Route Table.
+- Name: (optional) ```Edge association route table```
+- Select your **VPC ID**.
+- Click on **Create Route Table**.
 
-![C1NS1](/images/deploy_protec_10.png) 
-
----
-
-##### 7.2 In the code, search for <code>END VTPS CLI</code>
-
-![C1NS1](/images/deploy_protec_11.png) 
+![C1NS1](/images/deploy_protec_9.png)
 
 ---
 
-##### 7.3 Add the code snippet provided **above** the line string  with **END VTPS CLI**. 
-
-These lines are to enable the event forwarding to AWS CloudWatch using the America EST timezone.
+#### 7.1 Edit the Route Table routes.
+- Add the following route:
+```
+Destination   | Target
+10.10.10.0/24 | <VPC Endpoint>
 
 ```
-  edit
-- |
-  log
-- |
-  cloudwatch inspection-event enable
-- |
-  exit
-- |
-  commit
-- |
-  exit
-- |
-  save-config -y
-- |
-  edit
-- |
-  gen
-- |
-  timezone America New_York
-- |
-  exit
-- |
-  commit
-- |
-  exit
-- |
-  save-config -y
-- |
-```
+- Click **Save Changes**.
+
+![C1NS1](/images/deploy_protec_10.png)
 
 ---
 
 
-##### 7.4  After making the changes, the code will be similar to the image below. 
-The selection are the lines that I added. 
+#### 7.2  Create the edge association. 
+Create an edge association for this route table. 
+- Select the **edge association route table**. 
+- Click on the **Edge Associations tab**. 
+- Click **Edit edge associations**. 
+- Select the Internet Gateway and any Virtual Private Gateways that you want to protect, and then click Save changes.
 
-- Once changed, **save the file**.
-
-{{% notice warning %}}
-<p style='text-align: left;'>
-<b>Be careful with the indention of the code, otherwise the template format may break.</b>
-</p>
-{{% /notice %}}
-
-![C1NS1](/images/deploy_protec_12.png) 
-
----
-
-#### 8. Navigate to the [AWS Console](https://aws.amazon.com/)
-- Navigate to **CloudFormation**
-- Click on **Create Stack with new resources**
-
+![C1NS1](/images/deploy_protec_12.png)
 ![C1NS1](/images/deploy_protec_13.png) 
 
 ---
 
-#### 9.  Create Stack
-- Select the **Upload a template file** 
-- Click on **Choose file** 
-- Choose the CloudFormation template: **deploymentScript.yaml**
-- Click on **Next**
+#### 8. Create the Network Security endpoint subnet route table
+This route table is associated with the Network Security endpoints that you deployed for this VPC.
+- Name: (optional) ```Network Security endpoint subnet route table```
+- Select your **VPC ID**.
+- Click on **Create Route Table**.
 
 ![C1NS1](/images/deploy_protec_14.png) 
+ 
 
 ---
 
-#### 10.  Specify Stack details.
-- Stack Name: <code>Modernization-Workshop-Network-Security-Appliance</code>
-- Click on **Next**
+#### 8.1 Edit the Route Table routes.
+- Add the following route:
+```
+Destination   | Target
+0.0.0.0/0     | <IGW>
 
-![C1NS1](/images/deploy_protec_15.png) 
 
----
-#### 11. (Optional) Configure stack options
-- Add **Tags** if desired 
-- Click on **Next**
-
-![C1NS1](/images/deploy_protec_16.png) 
+```
+- Click **Save Changes**.
+![C1NS1](/images/deploy_protec_15.png)
 
 ---
-#### 12. Review deployment. 
-- Check the box "I acknowledge .."
-- Click on **Create stack**
 
+#### 8.2  Create subnet association.
+- Select the **Network Security endpoint subnet route table**. 
+- Click the **Subnet Associations tab**. 
+- Click **Edit subnet associations**. 
+- Select the subnet that contains the **Network Security endpoint**. 
+- Create a subnet association for this route table for the subnet that contains a Network Security endpoint.
+
+![C1NS1](/images/deploy_protec_16.png)
 ![C1NS1](/images/deploy_protec_17.png)
+
+---
+#### 9. Modify the public subnet route table.
+- Select the Route Table named: ```Protected Public Routes - C1NS-labenvironment```
+- Select the **Routes tab**.
+- Click on **Edit routes**.
+
 ![C1NS1](/images/deploy_protec_18.png)
+
+- **Modify** the route
+- Click on **Save Changes**.
+```
+Destination   | Target
+0.0.0.0/0     | <VPC Endpoint>
+
+```
 ![C1NS1](/images/deploy_protec_19.png)
 
----
-
-#### 13. Wait until the successful creation of the stack before you move to the next chapter.
-
-![C1NS1](/images/deploy_protec_20.png) 
 
 ---
-> **Et voila, we just generated completed the deployment of the Cloud One - Network Security Appliance in our AWS environment** 🤩 :cloud: 🤖 :rocket:
+> **Et voila, we just generated configured the routing for the managed service enpoint in our AWS environment** 🤩 :cloud: 🤖 :rocket:

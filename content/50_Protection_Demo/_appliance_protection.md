@@ -1,7 +1,7 @@
 ---
-title: "Testing with Inspection"
+title: "Validate Appliance Inspection"
 chapter: false
-weight: 52
+weight: 53
 pre: "<b>6.2 </b>"
 ---
 
@@ -9,27 +9,33 @@ pre: "<b>6.2 </b>"
 
 ---
 
-#### 1. Sign in to the [Cloud One](https://cloudone.trendmicro.com/home)
-- Select the **Network Security** tile
-- Expand **Network** 
-- Click on **Appliances**
-- Click on the **Group/Appliance Name**
+#### 1. Distributing the security policy.
+- In the Network Security Console select **Network > Appliances**.
+- Click on the **Group/Appliance Name**.
 
 ![ns_policy1](/images/ns_aplliances.png)
-![ns_policy1](/images/ns_distro_policy_unhealthy.png)
+![ns_policy1](/images/ns_distro_policy.png)
 
 ---
 
-#### 2. On the Appliance page, ENABLE the Inspection of the Appliance. 
-- Toggle **Inspection State** to **enable** inspection. 
+#### 2. On the Appliance page, click in **Distribute Policy** and wait until it distribution has finished.
 
-![ns_policy1](/images/ns_inspection.png)
+![ns_policy1](/images/distro_policy_start.png)
+
+---
+
+##### 2.1 Once it finish it will look like the image below.
+
+
+![ns_policy1](/images/distro_policy_finish.png)
+
+
 
 ---
 
 #### 3. Navigate to the AWS Console
 - Navigate to **EC2**
-- Select EC2 instance **DVWA** 
+- Select the EC2 instance named: **DVWA** 
 - Copy the **Public IPv4 Address/DNS**
 
 ![ns_policy1](/images/dvwa_ip.png)
@@ -38,7 +44,7 @@ pre: "<b>6.2 </b>"
 ---
 
 #### 4. Access the web application using the Public IP/DNS. 
-- Remember that it will be over HTTP. 
+- In a new browser tab, navigate to the DVWA application. Remember that it will be over HTTP. 
 - User: **admin**
 - Password: **password**
 - **Login**
@@ -113,12 +119,12 @@ If you decide to change this intrusion prevention filter from permit to <b>BLOCK
 - In the **SSH shell/terminal**
 - Run Command: <code>wget http://files.trendmicro.com/products/eicar-file/eicar.com</code>
 
-#### 7.1 Remember we configured the intrusion prevention filter to **Block**, so instead of the file being permitted the Network Security Appliance drops the file attempt and another timeout will occur. 
+#### 7.2 Remember we configured the intrusion prevention filter to **Block**, so instead of the file being permitted the Network Security Appliance drops the file attempt and another timeout will occur. 
 
 ![ns_policy1](/images/timeout_mfu.png)
 
 
-#### 7.2 Let's check our CloudWatch dashboard for Wget Retrieval Attempt - Download File
+#### 7.3 Let's check our CloudWatch dashboard for Wget Retrieval Attempt - Download File
 - In AWS Console navigate to **CloudWatch**
 - From the left-hand menu select **Dashboards**
 - Select: **Cloud_One_Network_Security_Panel**
