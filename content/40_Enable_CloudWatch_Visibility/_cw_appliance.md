@@ -7,6 +7,11 @@ pre: "<b>5.2 </b>"
 
 # Enable CloudWatch Visibility for Networks Security Appliance.
 
+{{% notice warning %}}
+<p style='text-align: left;'>
+<b>Don't not continue with these steps if you have already deployed the Network Security Managed Endpoint Cloudwatch panel. The NS appliance cloudwatch panel is an alternative deployment method.</b>
+</p>
+{{% /notice %}}
 
 ---
 

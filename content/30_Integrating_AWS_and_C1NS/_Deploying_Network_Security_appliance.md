@@ -7,6 +7,12 @@ pre: "<b>4.4 </b>"
 
 ### Deploying Cloud One - Network Security Appliance 
 
+{{% notice warning %}}
+<p style='text-align: left;'>
+<b>Don't not continue with these steps if you have already deployed the Network Security Managed Endpoint. The NS appliance is an alternative deployment method.</b>
+</p>
+{{% /notice %}}
+
 Amazon Web Services (AWS) allows you to scale your network deployment as needed without investing in hardware appliances. Deploy Network Security in AWS by placing Network Security instances inline within your AWS Virtual Private Cloud (VPC).
 
 ![C1NS1](/images/C1NS_Edge_Deployment.png)
