@@ -89,6 +89,11 @@ weight = 1
 languageName = "Self Guided"
 
 [Languages.ee]
-title = "Event Engine"
+title = "Event Engine - Endpoint"
 weight = 2
-languageName = "Event Engine"
+languageName = "EE - Endpoint"
+
+[Languages.ami]
+title = "Event Engine - Appliance"
+weight = 3
+languageName = "EE - AMI"
