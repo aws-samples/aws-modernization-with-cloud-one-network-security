@@ -19,6 +19,6 @@ To simulate a real customer environment, we will use a pre-built CloudFormation 
 
 As a recommended deployment method in the Cloud One - Network Security documentation, we will use the follow topology on the AWS environment for our lab.
 
-![Edge_Deployment](/images/C1NS_Edge_Deployment.png) 
+![Endpoint_Deployment](/images/base_env.png) 
 
 
