@@ -9,7 +9,7 @@ pre: "<b>5.1 </b>"
 
 
 
-#### 1. Obtain the following Paramter values.
+#### 1. Obtain the following Parameter values.
 - In CloudFormation, select the stack: ```C1NS-Cloud-Account-Management```. 
 - Select the **Parameters** tab.
 - Copy down the **ExternalID** value.
