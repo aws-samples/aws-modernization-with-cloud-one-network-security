@@ -86,6 +86,11 @@ Destination   | Target
 10.10.10.0/24 | <VPC Endpoint>
 
 ```
+:information_source: You can find the vpc endpoint on the Cloud One console like you can see in this image here:
+
+![C1NS1](/images/vpce_information.png)
+
+
 - Click **Save Changes**.
 
 ![C1NS1](/images/deploy_protec_10.png)

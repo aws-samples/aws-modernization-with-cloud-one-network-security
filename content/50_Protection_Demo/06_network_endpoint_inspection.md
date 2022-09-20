@@ -31,7 +31,7 @@ pre: "<b>6.1 </b>"
 --------
 
 #### 3. Validate deployment.
-fter you complete the deployment of the Network Security endpoints and modify your route tables, verify that deployment was successful from the **Managed Service page**.
+After you complete the deployment of the Network Security endpoints and modify your route tables, verify that deployment was successful from the **Managed Service page**.
 - Click on Network Security endpoint A link to view the protection details for that endpoint, including the rates and times of traffic inspected. 
 
 If data appears in the Traffic Inspected graph, then the managed service was successfully deployed. If not traffic inspection data appears, double check the routing in your cloud environment.
