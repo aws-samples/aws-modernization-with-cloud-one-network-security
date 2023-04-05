@@ -1,11 +1,11 @@
 ---
-title: "Cloud One - Network Security Adding Cloud Account"
+title: "Adding Cloud Account"
 chapter: false
 weight: 32
 pre: "<b>4.2 </b>"
 ---
 
-### Integrating AWS with Cloud One- Network Security.
+### Integrating AWS with Cloud One Network Security.
 
 {{% notice info %}}
 <p style='text-align: left;'>
@@ -16,57 +16,64 @@ A Cloud One Account is required to proceed. If you have not registered for a Clo
 ----
 
 #### 1. Log in [Cloud One](https://cloudone.trendmicro.com/)
-- Select the **Network Security** tile. 
+- Select the **Integrations** tile. 
 
-![C1NS2](/images/c1-home.png) 
-
----
-
-#### 2. Click on **Add Cloud Account**.
-
-![C1NS3](/images/C1NS_Wizard.png)
+![C1NS2](/images/ns/intergration1.jpg) 
 
 ---
 
-#### 3. Create an IAM role and policy for Network Security in your AWS account using the generated CloudFormation template.
+#### 2. Manage your Cloud One Account.
+- Click on **Cloud Accounts**.
+- Select the **AWS** tab.
+- Click on **+New**.
 
+![C1NS2](/images/ns/intergration2.jpg) 
+
+---
+
+#### 3. Intergrate Cloud One with AWS using the common connector CloudFormation template.
+- Step1: Select the ```us-east-1``` region.
+- Step2: Expand **view configuration**.
+- Disable Cloud Sentry.
+- Enable Network Security with hosted infrastructure.i
 - Click on **Launch Stack**.
 
-![C1NS4](/images/Add_IAM_Policy.png) 
+![C1NS2](/images/ns/integration3.jpg) 
 
 ---
 
 #### 4. Clicking Launch Stack will navigate you to AWS CloudFormation.
-- Optional: Rename the stack.
 - Do NOT edit any of the stack parameters.
 - Check the box to acknowledge resources.
 - Click on **Create Stack**
 
-![C1NS1](/images/create_net_sec_1.png)
-![C1NS1](/images/create_net_sec_2.png)
+![C1NS2](/images/ns/integration4.jpg)
+![C1NS2](/images/ns/integration5.jpg)
 
 ---
 
 #### 5. Once the Stack has completed successfully.
 - Select the tab **Outputs** 
-- Copy the **ARN value** for the IAM role created.
+- Copy the **ARN value** for the CloudOneRoleArn key.
 
-![C1NS1](/images/create_net_sec_3.png) 
+![C1NS2](/images/ns/integration6.jpg) 
 
 ---
 
 #### 6. Navigate back to Cloud One - Network Security.
 - Paste in the ARN value copied from the CloudFormation Outputs.
-- Click on **+ Add Cloud Account**
+- Optional: Name the account and provide a description.
+- Click on **Connect**
 
-![C1NS1](/images/create_net_sec_4.png)
+![C1NS2](/images/ns/integration7.jpg)
+
 
 ---
 
 #### 7. Confirm the account has been created successfully.
-- Once confrimed, click on **Exit Wizard**.
 
-![C1NS1](/images/create_net_sec_6.png) 
+![C1NS2](/images/ns/integration8.jpg)
+![C1NS2](/images/ns/integration10.jpg)
 
 
 
