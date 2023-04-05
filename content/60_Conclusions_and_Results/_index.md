@@ -13,6 +13,6 @@ In this workshop, you learned how you can add security to your VPC's using Cloud
 
 Get started with Network Security and embrace the simplicity of cloud-native network protection, so you can protect your network where you need it, without disrupting your business applications or processes.
 
-For more information on Network Security, please visit [Trend Micro Cloud One™ – Network Security](https://www.trendmicro.com/en_ae/business/products/hybrid-cloud/cloud-one-network-security.html)
+For more information on Network Security, please visit [Trend Cloud One™ – Network Security](https://www.trendmicro.com/en_ae/business/products/hybrid-cloud/cloud-one-network-security.html)
 
-Want to learn about the other valuable Trend Micro Cloud One solutions? please visit [Trend Micro Cloud One™](https://www.trendmicro.com/cloudone)
+Want to learn about the other valuable Trend Micro Cloud One solutions? please visit [Trend Cloud One™](https://www.trendmicro.com/cloudone)

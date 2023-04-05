@@ -14,9 +14,9 @@ Deploying Network Security as a managed service requires only a few steps and ha
 
 #### 1. In the Cloud One Network Security console.
 - Click on the **Network** tab
-- Select **Managed Service**
+- Select **Hosted Infrastructure**
 
-![C1NS1](/images/deploy_protec_1.png) 
+![C1NS1](/images/ns/ms1.jpg) 
 
 ---
 

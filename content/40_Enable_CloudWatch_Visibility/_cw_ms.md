@@ -10,12 +10,12 @@ pre: "<b>5.1 </b>"
 
 
 #### 1. Obtain the following Parameter values.
-- In CloudFormation, select the stack: ```C1NS-Cloud-Account-Management```. 
+- In CloudFormation, select the stack: ```Cloud-One-Cloud-Account-Management```. 
 - Select the **Parameters** tab.
-- Copy down the **ExternalID** value.
+- Copy down the **CloudOneAccountID** value.
 - Obtain your **AWS Account ID** by clicking your name/user in the top right. Copy this value down.
 
-![CloudWatch2](/images/cw4.png)
+![CloudWatch2](/images/ns/cw1.jpg)
 
 ---
 

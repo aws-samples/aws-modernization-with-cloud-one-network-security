@@ -1,13 +1,13 @@
 ---
-title: "Trend Micro Cloud One"
+title: "Trend Cloud One"
 chapter: false
 weight: 6
 ---
 
-### What is Trend Micro Cloud One?
+### What is Trend Cloud One?
 Trend Micro Cloud One, a security services platform for organizations building in the cloud, delivers the broadest and deepest cloud security offering in one solution, enabling you to secure your cloud infrastructure with clarity and simplicity. By considering your cloud projects and objectives holistically, Trend Micro Cloud One is able to provide powerful security while you leverage all of the benefits and efficiencies the cloud offers your business. Comprised of multiple services designed to meet specific cloud security needs, Trend Micro Cloud One gives you the flexibility to solve your challenges today, and the innovation to evolve with your cloud services in the future.
 
-![Diagram](/images/cloudone.png)
+![Diagram](/images/tm/TM_CloudDiagram.jpg)
 
 --- 
 
